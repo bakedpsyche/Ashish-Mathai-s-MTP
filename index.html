@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>Theyyam as an Environmental Theatre</title>
+        <link rel="icon" type="image/png" href="favicon.ico"/>
+        <meta name="description" content="3D Application">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+        <script type="text/javascript" src="js/webxr.js"></script>
+        <script type="text/javascript" src="js/joystick.js"></script>
+        <script type="text/javascript" src="js/camera-cube-env.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body onload="init();">
+        <a-scene renderer="antialias: true;
+                           colorManagement: true;
+                           physicallyCorrectLights: true"  
+                 shadow="type: pcfsoft; 
+                           autoUpdate: true;">
+            <!-- Assets -->
+            <a-assets>
+				<a-asset-item id="1" src="./assets/1.gltf"></a-asset-item>
+				<a-asset-item id="10" src="./assets/10.gltf"></a-asset-item>
+				<a-asset-item id="2" src="./assets/2.gltf"></a-asset-item>
+				<a-asset-item id="3" src="./assets/3.gltf"></a-asset-item>
+				<a-asset-item id="4" src="./assets/4.gltf"></a-asset-item>
+				<a-asset-item id="5" src="./assets/5.gltf"></a-asset-item>
+				<a-asset-item id="6" src="./assets/6.gltf"></a-asset-item>
+				<a-asset-item id="7" src="./assets/7.gltf"></a-asset-item>
+				<a-asset-item id="8" src="./assets/8.gltf"></a-asset-item>
+				<a-asset-item id="9" src="./assets/9.gltf"></a-asset-item>
+				<a-asset-item id="floor" src="./assets/floor.gltf"></a-asset-item>
+				<a-asset-item id="nav" src="./assets/nav.gltf"></a-asset-item>
+				<a-asset-item id="Plane" src="./assets/Plane.gltf"></a-asset-item>
+				<a-asset-item id="Plane.001" src="./assets/Plane.001.gltf"></a-asset-item>
+				<a-asset-item id="Plane.002" src="./assets/Plane.002.gltf"></a-asset-item>
+				<a-asset-item id="Plane.003" src="./assets/Plane.003.gltf"></a-asset-item>
+				<a-asset-item id="Plane.004" src="./assets/Plane.004.gltf"></a-asset-item>
+				<a-asset-item id="room" src="./assets/room.gltf"></a-asset-item>
+				<a-asset-item id="Text" src="./assets/Text.gltf"></a-asset-item>
+				<a-asset-item id="Text.001" src="./assets/Text.001.gltf"></a-asset-item>
+				<a-asset-item id="Text.002" src="./assets/Text.002.gltf"></a-asset-item>
+				<a-asset-item id="Text.003" src="./assets/Text.003.gltf"></a-asset-item>
+				<a-asset-item id="Text.004" src="./assets/Text.004.gltf"></a-asset-item>
+				<a-asset-item id="Text.005" src="./assets/Text.005.gltf"></a-asset-item>
+				<a-asset-item id="Text.006" src="./assets/Text.006.gltf"></a-asset-item>
+				<a-asset-item id="Text.007" src="./assets/Text.007.gltf"></a-asset-item>
+				<a-asset-item id="Text.008" src="./assets/Text.008.gltf"></a-asset-item>
+                <img id="sky"                 src="./resources/sky.jpg">
+                <img id="icon-play"           src="./resources/play.png">
+                <img id="icon-pause"          src="./resources/pause.png">
+                <img id="icon-play-skip-back" src="./resources/play-skip-back.png">
+                <img id="icon-mute"           src="./resources/mute.png">
+                <img id="icon-volume-low"     src="./resources/volume-low.png">
+                <img id="icon-volume-high"    src="./resources/volume-high.png">
+            </a-assets>
+
+            <!-- Entities -->
+            
+			<a-entity id="#1"  gltf-model="#1" scale="1 1 1" position="-1.761330008506775 1.5407227277755737 -3.0846314430236816" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#10"  gltf-model="#10" scale="1 1 1" position="0.10998198390007019 1.4658970832824707 -23.848241806030273" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#2"  gltf-model="#2" scale="1 1 1" position="4.905731678009033 1.3637417554855347 -3.939136028289795" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#3"  gltf-model="#3" scale="1 1 1" position="1.32124924659729 1.2727396488189697 -7.43904972076416" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#4"  gltf-model="#4" scale="1 1 1" position="-4.8975958824157715 1.428426742553711 -6.731303691864014" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#5"  gltf-model="#5" scale="1 1 1" position="-1.782944917678833 1.2093100547790527 -11.528884887695312" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#6"  gltf-model="#6" scale="1 1 1" position="4.90777063369751 1.2032103538513184 -10.96708869934082" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#7"  gltf-model="#7" scale="1 1 1" position="0.8004476428031921 1.3675084114074707 -15.27538776397705" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#8"  gltf-model="#8" scale="1 1 1" position="-4.904966354370117 1.3931177854537964 -14.052460670471191" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#9"  gltf-model="#9" scale="1 1 1" position="-1.6325105428695679 1.3366107940673828 -18.77985954284668" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#floor"  gltf-model="#floor" scale="1 1 1" position="2.0613274500647094e-06 -0.05951094627380371 -10.50205135345459" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#nav"  gltf-model="#nav" scale="1 1 1" position="-0.055363841354846954 -0.05484330654144287 -10.783439636230469" visible="false" shadow="cast: false" nav-mesh ></a-entity>
+			<a-entity id="#Plane"  gltf-model="#Plane" scale="1 1 1" position="-1.7681599855422974 1.489091396331787 -3.174456834793091" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Plane.001"  gltf-model="#Plane.001" scale="1 1 1" position="1.7514103651046753 1.489091396331787 -7.463008880615234" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Plane.002"  gltf-model="#Plane.002" scale="1 1 1" position="-1.7681599855422974 1.489091396331787 -11.603679656982422" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Plane.003"  gltf-model="#Plane.003" scale="1 1 1" position="1.7514103651046753 1.489091396331787 -15.211979866027832" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Plane.004"  gltf-model="#Plane.004" scale="1 1 1" position="-1.7681599855422974 1.489091396331787 -18.849855422973633" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#room"  gltf-model="#room" scale="1 1 1" position="1.6738971453378326e-06 1.4742162227630615 -10.515483856201172" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text"  gltf-model="#Text" scale="1 1 1" position="-0.1003495454788208 1.4570162296295166 -3.3350491523742676" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.001"  gltf-model="#Text.001" scale="1 1 1" position="4.914340972900391 1.3616691827774048 -2.3298165798187256" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.002"  gltf-model="#Text.002" scale="1 1 1" position="3.6308298110961914 1.224843978881836 -7.102888584136963" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.003"  gltf-model="#Text.003" scale="1 1 1" position="-4.9011688232421875 1.3350962400436401 -8.857672691345215" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.004"  gltf-model="#Text.004" scale="1 1 1" position="-0.01893794909119606 1.2193468809127808 -11.787711143493652" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.005"  gltf-model="#Text.005" scale="1 1 1" position="4.911584854125977 1.2618520259857178 -8.987615585327148" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.006"  gltf-model="#Text.006" scale="1 1 1" position="2.2783446311950684 1.414240837097168 -15.052973747253418" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.007"  gltf-model="#Text.007" scale="1 1 1" position="-4.906294822692871 1.4502918720245361 -15.613150596618652" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Text.008"  gltf-model="#Text.008" scale="1 1 1" position="0.2929527461528778 1.3977556228637695 -19.062776565551758" visible="true" shadow="cast: false" ></a-entity>
+
+            <!-- Camera -->
+            <a-entity id="player" 
+                position="0 -0.2 0" 
+                movement-controls="speed: 0.2; constrainToNavMesh: true;">>
+                <a-entity id="camera" 
+                    camera="near: 0.001" 
+                    position="0 1.7000000476837158 0" 
+                    look-controls="pointerLockEnabled: true">
+                        <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
+                            position="0 0 -0.1"
+                            geometry="primitive: circle; radius: 0.001;"
+                            material="color: #CCC; shader: flat;"
+                            >
+                        </a-entity>
+                </a-entity>
+                    <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
+					<a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
+            </a-entity>
+
+            <!-- Lights -->
+            <a-entity light="intensity: 01; castShadow: false; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2" position="-8.360 7.180 9.150"></a-entity>
+            <a-entity light="intensity: 01; castShadow: false; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2" position="11.501 7.180 9.176"></a-entity>
+            <a-entity light="type: ambient; intensity: 0.75"></a-entity>
+
+            <!-- Sky -->
+            <a-sky src="#sky" 
+                   material="" 
+                   geometry="" 
+                   rotation="0 90 0">
+            </a-sky>
+        </a-scene>
+    </body>
+</html>
